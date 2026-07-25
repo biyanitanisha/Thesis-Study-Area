@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thesis Satellite Explorer</title>
+  <style>
+    :root { --primary: #1b4332; --accent: #2d6a4f; --bg: #f8f9fa; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--bg); color: #333; line-height: 1.6; }
+    header { background-color: var(--primary); color: white; padding: 2rem 1rem; text-align: center; }
+    header h1 { margin: 0 0 10px 0; font-size: 2rem; }
+    .author-block { font-size: 0.95rem; opacity: 0.9; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    .card { background: white; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .map-container { position: relative; width: 100%; height: 550px; border-radius: 8px; overflow: hidden; border: 1px solid #ccc; }
+    iframe { width: 100%; height: 100%; border: none; }
+    .btn { display: inline-block; background-color: var(--accent); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+    .btn:hover { background-color: var(--primary); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    footer { text-align: center; padding: 2rem; background: #e9ecef; font-size: 0.9rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- TODO: Replace with your actual thesis title -->
+  <h1>Spatiotemporal Analysis of Vegetation Dynamics in Pune Basin</h1>
+  <div class="author-block">
+    <p><strong>Author:</strong> [Your Full Name] | <strong>PRN:</strong> [Your Roll Number]</p>
+    <p>M.Sc. Geoinformatics (Semester III) | BVIEER, Bharati Vidyapeeth, Pune</p>
+  </div>
+</header>
+
+<div class="container">
+  
+  <!-- Study Context -->
+  <section class="card">
+    <h2>Study Context & Objectives</h2>
+    <p><strong>Study Area:</strong> Pune District / Mula-Mutha Basin, Maharashtra, India</p>
+    <p><strong>Target Timeframe:</strong> January 2023 – December 2023</p>
+    <p><strong>Objective:</strong> This interactive explorer evaluates multi-sensor observation trade-offs across spatial, temporal, and spectral domains to monitor seasonal vegetation changes and land cover variability for ongoing thesis research.</p>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <section class="card">
+    <h2>Interactive Satellite Explorer</h2>
+    <div class="map-container">
+      <!-- TODO: Replace the SRC URL below with your actual GEE App link -->
+      <iframe src="https://YOUR_USERNAME.earthengine.app/view/thesis-explorer" title="GEE Satellite Explorer App"></iframe>
+    </div>
+    <div style="margin-top: 15px; text-align: right;">
+      <!-- Fallback button required by specification -->
+      <a href="https://YOUR_USERNAME.earthengine.app/view/thesis-explorer" target="_blank" rel="noopener" class="btn">Open Map in New Tab ↗</a>
+    </div>
+  </section>
+
+  <!-- Datasets Overview -->
+  <section class="card">
+    <h2>Data Products & Processing Summary</h2>
+    <div class="grid">
+      <div>
+        <h3>Landsat 9 SR</h3>
+        <ul>
+          <li><strong>Collection:</strong> LANDSAT/LC09/C02/T1_L2</li>
+          <li><strong>Resolution:</strong> 30 m spatial, 16-day temporal</li>
+          <li><strong>Scaling:</strong> Band values multiplied by 0.0000275 - 0.2</li>
+          <li><strong>Usage:</strong> High-quality median surface reflectance composite</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Sentinel-2 SR</h3>
+        <ul>
+          <li><strong>Collection:</strong> COPERNICUS/S2_SR_HARMONIZED</li>
+          <li><strong>Resolution:</strong> 10–20 m spatial, 5-day temporal</li>
+          <li><strong>Scaling:</strong> Band values multiplied by 0.0001</li>
+          <li><strong>Usage:</strong> Detailed spatial overview and cloud-masked imagery</li>
+        </ul>
+      </div>
+      <div>
+        <h3>MODIS Vegetation Indices</h3>
+        <ul>
+          <li><strong>Collection:</strong> MODIS/061/MOD13Q1</li>
+          <li><strong>Resolution:</strong> 250 m spatial, 16-day temporal</li>
+          <li><strong>Scaling:</strong> Raw values multiplied by 0.0001</li>
+          <li><strong>Usage:</strong> Scaled NDVI dynamic spatial composite & time-series aggregation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interpretation Section (100-150 words) -->
+  <section class="card">
+    <h2>Thesis Interpretation & Analysis</h2>
+    <p>
+      The integrated multi-sensor satellite exploration reveals significant land-cover variation and phenological trends across the study area. Sentinel-2’s high spatial resolution (10 m) provides fine-scale visual spatial distinction along urban-rural boundaries and riparian buffers, which appears aggregated or pixelated at Landsat 9's 30 m scale. However, both optical sensors remain vulnerable to seasonal cloud obscuration during the monsoon months (June–September). In contrast, the MODIS 16-day composite series offers coarse spatial resolution (250 m) but uninterrupted temporal continuity. The extracted MODIS NDVI time-series chart accurately captures distinct regional seasonal signals—peaking post-monsoon (October–November) and reaching lowest values during the late dry season (April–May). This cross-scale validation confirms MODIS's utility for continuous phenological trend tracking alongside Sentinel-2 for precise spatial boundaries in support of thesis land-monitoring objectives.
+    </p>
+  </section>
+
+  <!-- Credits & Links -->
+  <section class="card">
+    <h2>Data Credits & Repository Links</h2>
+    <ul>
+      <li>Data Sources: USGS Landsat Program, Copernicus Sentinel-2, NASA LP DAAC MODIS</li>
+      <li>Source Code Repository: <a href="https://github.com/YOUR_GITHUB_USERNAME/thesis-satellite-explorer" target="_blank">GitHub Repository Link</a></li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 | BVIEER M.Sc. Geoinformatics | Geospatial Big Data Analysis Assignment 1</p>
+</footer>
+
+</body>
+</html>
