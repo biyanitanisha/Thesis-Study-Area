@@ -6,13 +6,14 @@
   <title>The Awakening Coast | GeoAI Satellite Explorer</title>
   <style>
     :root {
-      --bg-dark: #0f172a;       /* Dark slate background */
-      --card-bg: #1e293b;      /* Dark teal/slate card background */
-      --card-border: #334155;  /* Subtle panel border */
-      --accent-cyan: #06b6d4;   /* Coastal GIS cyan highlight */
-      --accent-emerald: #10b981;/* GeoAI emerald highlight */
-      --text-main: #f8fafc;     /* Bright text */
-      --text-muted: #94a3b8;    /* Muted label text */
+      --bg-light: #f1f5f9;      /* Soft cool light slate background */
+      --card-bg: #ffffff;       /* Pure white card background */
+      --card-border: #cbd5e1;   /* Soft slate border */
+      --header-bg: #0f4c5c;     /* Deep oceanic teal header */
+      --accent-teal: #0e7490;   /* Bright teal for subtitles & icons */
+      --accent-green: #059669;  /* Coastal/GeoAI green accent */
+      --text-main: #1e293b;     /* High-contrast dark charcoal text */
+      --text-muted: #64748b;    /* Slate muted label text */
     }
 
     * { box-sizing: border-box; }
@@ -20,48 +21,51 @@
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       margin: 0;
-      background-color: var(--bg-dark);
+      background-color: var(--bg-light);
       color: var(--text-main);
       line-height: 1.5;
     }
 
     /* Top Navigation / Title Bar */
     header {
-      background: linear-gradient(135deg, #0284c7 0%, #0f172a 70%);
-      padding: 1.2rem 2rem;
-      border-bottom: 1px solid var(--card-border);
+      background: linear-gradient(135deg, #0f4c5c 0%, #1e3a8a 100%);
+      color: white;
+      padding: 1.25rem 2rem;
+      border-bottom: 3px solid var(--accent-green);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     .header-title h1 {
       margin: 0;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       color: #ffffff;
     }
 
     .header-title p {
-      margin: 3px 0 0 0;
-      font-size: 0.85rem;
-      color: var(--accent-cyan);
+      margin: 4px 0 0 0;
+      font-size: 0.88rem;
+      color: #67e8f9; /* Light cyan text for contrast */
       font-weight: 500;
     }
 
     .author-badge {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(4px);
       padding: 8px 16px;
       border-radius: 6px;
-      border: 1px solid var(--card-border);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       font-size: 0.82rem;
       text-align: right;
     }
 
-    .author-badge strong { color: var(--accent-emerald); }
+    .author-badge strong { color: #6ee7b7; }
 
     /* Main Grid Dashboard */
     .dashboard-container {
@@ -79,14 +83,14 @@
       border: 1px solid var(--card-border);
       border-radius: 12px;
       padding: 1.25rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
     .map-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       flex-wrap: wrap;
       gap: 10px;
     }
@@ -95,8 +99,8 @@
       margin: 0;
       font-size: 1.1rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent-cyan);
+      letter-spacing: 0.04em;
+      color: var(--header-bg);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -107,18 +111,19 @@
       display: inline-block;
       width: 10px;
       height: 10px;
-      background-color: var(--accent-emerald);
+      background-color: var(--accent-green);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent-emerald);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
     }
 
     .map-container {
       position: relative;
       width: 100%;
-      height: 650px; /* Expanded focus area */
+      height: 650px; /* High focus area */
       border-radius: 8px;
       overflow: hidden;
-      border: 1px solid #475569;
+      border: 1px solid var(--card-border);
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.04);
     }
 
     iframe { width: 100%; height: 100%; border: none; }
@@ -127,17 +132,20 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: #0284c7;
+      background-color: var(--accent-teal);
       color: white;
       padding: 8px 16px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.85rem;
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
     }
 
-    .btn-gis:hover { background-color: #0369a1; }
+    .btn-gis:hover {
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
 
     /* Secondary Dashboard Grid */
     .grid-details {
@@ -151,13 +159,14 @@
       padding: 1.25rem;
       border-radius: 10px;
       border: 1px solid var(--card-border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
 
     .card h3 {
       margin-top: 0;
       font-size: 1rem;
-      color: var(--accent-cyan);
-      border-bottom: 1px solid var(--card-border);
+      color: var(--header-bg);
+      border-bottom: 2px solid #e2e8f0;
       padding-bottom: 8px;
     }
 
@@ -173,7 +182,7 @@
       margin-bottom: 8px;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px dashed #334155;
+      border-bottom: 1px dashed #e2e8f0;
       padding-bottom: 4px;
     }
 
@@ -181,26 +190,35 @@
 
     /* Data Product Cards */
     .data-card {
-      background: rgba(15, 23, 42, 0.4);
+      background: #f8fafc;
       padding: 10px 14px;
       border-radius: 6px;
-      border-left: 3px solid var(--accent-emerald);
+      border-left: 4px solid var(--accent-green);
       margin-bottom: 10px;
       font-size: 0.85rem;
     }
 
-    .data-card h4 { margin: 0 0 4px 0; color: #fff; font-size: 0.9rem; }
+    .data-card h4 { margin: 0 0 4px 0; color: var(--header-bg); font-size: 0.9rem; }
     .data-card p { margin: 0; color: var(--text-muted); line-height: 1.4; }
 
-    /* Text & Links */
-    a { color: var(--accent-cyan); text-decoration: none; }
+    /* Code styling */
+    code {
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* Links */
+    a { color: var(--accent-teal); text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
 
     footer {
       text-align: center;
       padding: 1.5rem;
-      background: #090d16;
-      font-size: 0.8rem;
+      background: #e2e8f0;
+      font-size: 0.82rem;
       color: var(--text-muted);
       border-top: 1px solid var(--card-border);
     }
